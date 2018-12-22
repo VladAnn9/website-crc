@@ -1,0 +1,549 @@
+@import '../variables';
+// @import "~bootstrap/scss/bootstrap.scss";
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+section {
+
+    &.welcome {
+        background: $background;
+
+
+        .btn {
+            @include moreinfo-btn;
+        }
+        
+    }
+    
+    min-height: 100%;
+    padding: 60px 0;
+    
+    @include media-breakpoint-only(md) {
+        padding: 40px 0;
+    }
+
+    @include media-breakpoint-between(xs ,sm) {
+        padding: 22px 0;
+    }
+
+    h2 {
+        margin-bottom: 50px;
+        text-align: center;
+
+        @include media-breakpoint-only(md) {
+            margin-bottom: 30px;
+        }
+
+        @include media-breakpoint-between(xs,sm) {
+            margin-bottom: 20px;
+        }
+
+        &::after {
+            display: block;
+            height: 1px;
+            background-color: $main-color;
+            content: " ";
+            width: 100px;
+            margin: 0 auto;
+            margin-top: 40px;
+
+            @include media-breakpoint-only(md) {
+                margin-top: 30px;
+            }
+
+            @include media-breakpoint-between(xs, sm) {
+                margin-top: 20px;
+            }
+        }
+    }    
+}
+
+section.about {
+    min-height: 100%;
+    // background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+    // url(../../back.jpg) center/cover;
+    // background: linear-gradient( 325deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)); 
+
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../../worship.jpg) center/cover;
+    background-attachment: fixed;
+
+    color: white;
+    
+    .container {
+        height: 100%;
+
+        h2 {
+            color: white;
+        }
+        
+        .page {
+            @include page-number;
+            p {
+                color: white;
+            }
+            span {
+                background: #fff;
+            }
+        }
+        
+        .btn {
+            @include moreinfo-btn;  
+            color: White;
+
+            @include media-breakpoint-only(sm) {
+                font-size: 12px;
+            }
+            
+        } 
+
+        // TODO >>: Make text a background
+        .back-header {
+            @include back-header-effect;
+            color: rgba(255, 235, 59, 0.5);
+
+            @include media-breakpoint-only(sm) {
+                margin-bottom: -56px;
+            }
+        }
+
+    }
+}
+
+section.services {
+    background: #fff;
+
+    .container {
+        .page { 
+            @include page-number;
+            margin: 0;
+            p {
+                display: inline-block;
+                // margin: 0;
+                padding: 0;
+                // padding-top: 2px;
+                transform: none;
+            }
+
+            @include media-breakpoint-between(xs, sm) {
+                span { width: 40px; }
+            }
+        }
+
+        .back-header {
+            @include back-header-effect;
+
+            @include media-breakpoint-only(md) {
+                font-size: 70px;
+                margin-bottom: -40px;
+            }
+
+            @include media-breakpoint-only(sm) {
+                font-size: 54px;
+                margin-bottom: -30px;
+            }
+            @include media-breakpoint-only(xs) {
+                font-size: 40px;
+                margin-bottom: -15px;
+            }
+        }
+
+        .youth-img {
+            height: 550px;
+            width: 500px;
+            box-shadow: 0 0px 40px 0px #00000082;
+        } 
+
+        
+        .description-services {
+            h3 {
+                font-size: 220%;
+
+               @include media-breakpoint-up(md) {
+                   line-height: 1.5;
+                }
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .btn {
+                @include moreinfo-btn;
+                // text-transform: lowercase;
+                // font-size: 12px;
+
+                @include media-breakpoint-only(md) {
+                    font-size: 12px;
+                }
+                @include media-breakpoint-only(sm) {
+                    font-size: 10px;
+                }
+                @include media-breakpoint-only(xs) {
+                    font-size: 12px;
+                }
+
+                @include media-breakpoint-between(xs, lg) {
+                    &:hover,
+                    &:focus {
+                        box-shadow: inset 14em 0 0 0 $main-color;
+                    }
+                }
+            }
+
+        }
+
+        .strip-1 {
+            display: block;
+            width: 100px;
+            height: 1px;
+            background: #000;
+            margin-bottom: 40px;
+            margin-top: 36px;
+
+            @include media-breakpoint-only(md) {
+                width: 80px;
+            }
+            @include media-breakpoint-only(xs) {
+                width: 60px;
+            }
+            @include media-breakpoint-only(sm) {
+                width: 60px;
+                transform: rotate(90deg);
+            }
+
+        }
+
+        .strip-2 {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: $main-color;
+        }
+
+        .service-kids {
+            img {
+                margin-top: -4rem;
+            }
+        }
+
+        .service-some { 
+            img {
+                margin-top: -4rem;
+            }
+        }
+
+
+        /*************************/
+        /******** QUERIES ********/
+        /*************************/
+
+        @include media-breakpoint-only(lg) {
+            .youth-img {
+                height: 480px;
+                width: 420px;
+            } 
+            .service-kids {
+                img {
+                    margin-top: -1rem;
+                }
+            }
+    
+            .service-some { 
+                img {
+                    margin-top: -1rem;
+                }
+            }
+        }
+
+        @include media-breakpoint-only(md) {
+            .youth-img {
+                height: 380px;
+                width: 320px;
+            }
+            .service-kids {
+                img {
+                    margin-top: -1rem;
+                }
+            }
+    
+            .service-some { 
+                img {
+                    margin-top: -1rem;
+                }
+            }
+
+            .description-services {
+                padding-top: 36px;
+
+                p {
+                    font-size: 14px;
+                }
+
+            }
+            
+            .service-youth {
+                .strip-1 {
+                    margin-top: 40px;
+                }
+            }
+
+            .service-some {
+                .strip-1 {
+                    margin-top: 32px;
+                }
+            }
+        }
+
+        @include media-breakpoint-only(sm) {
+            .youth-img {
+                height: 300px;
+                width: 240px;
+            }
+            .service-kids {
+                img {
+                    margin-top: -1rem;
+                }
+            }
+    
+            .service-some { 
+                img {
+                    margin-top: -1rem;
+                }
+            }
+
+            .description-services {
+                padding-top: 26px;
+
+                p {
+                    font-size: 12px;
+                }
+
+            }
+            
+            .service-youth {
+                .strip-1 {
+                    margin-top: 34px;
+                    
+                }
+            }
+
+            .service-some {
+                .strip-1 {
+                    margin-top: 22px;
+                }
+            }
+        }
+
+        @include media-breakpoint-only(xs) {
+            .youth-img {
+                height: 340px;
+                width: 280px;
+            }
+            .service-kids {
+                img {
+                    margin-top: 0;
+                }
+            }
+    
+            .service-some { 
+                img {
+                    margin-top: 0;
+                }
+            }
+
+            .description-services {
+                padding-top: 26px;
+
+                p {
+                    font-size: 14px;
+                }
+
+            }
+            
+            .service-youth {
+            }
+            .strip-1 {
+                margin-top: 10px;
+                margin-bottom: 12px;
+            }
+            .strip-2 {
+                margin-bottom: 6px;
+            }
+
+            .service-kids {
+                .strip-1 {
+                    margin-left: auto;
+                }
+            }
+
+            // .service-some {
+            //     .strip-1 {
+            //         margin-top: 22px;
+            //     }
+            // }
+        }
+
+    }
+
+
+}
+
+section.contact {
+    background: $background;
+
+    .back-header {
+        @include back-header-effect;
+        transform: rotate(-90deg);
+        font-size: 70px;
+        margin: 0;
+        // color: rgba(255, 235, 59, 0.6);
+
+        @include media-breakpoint-between(xs, sm) {
+            font-size: 60px;
+        }
+    }
+
+    .btn {
+        @include moreinfo-btn;
+        margin-top: 24px;
+
+        @include media-breakpoint-between(xs, sm) {
+            margin-top: 12px;
+            font-size: 12px;
+        }
+        @include media-breakpoint-only(xs) { font-size: 10px; }
+    }
+    
+    input, textarea {
+        margin-bottom: 22px;
+        border: none;
+        border-bottom: 1px solid $main-color;
+        box-shadow: none;
+        font-size: 18px;
+        color: $color;
+        padding-bottom: 2px;
+        background: transparent;
+        
+        @include media-breakpoint-between(xs, sm) {
+            font-size: 16px;
+        }        
+    }
+    
+}
+
+section.location {
+
+    @include media-breakpoint-only(xs) { padding: 0; }
+
+    h4 {
+        line-height: 1.5;
+    }
+
+    .page {
+        @include page-number;
+        margin-top: 0;
+
+        @include media-breakpoint-between(xs, sm) {
+            p {
+                padding-left: 0;
+            }
+            span { width: 20px; }
+        }
+
+        @include media-breakpoint-only(xs) {
+            p { display: inline-block;}
+            margin-top:-12px;
+            span {margin-bottom: 3px;}
+
+            .btn {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .btn {
+        @include moreinfo-btn;
+        
+        a {
+            text-decoration: none;
+            color: $color;
+
+
+            @include media-breakpoint-up(md)  {
+                font-size: 18px;
+            }   
+        }
+
+        @include media-breakpoint-only(xs) {
+            display: block;
+            margin: 10px auto;
+        }
+    }
+
+
+}
+
+footer {
+    min-height: 100%;
+    padding-top: 60px;
+    line-height: 2;
+    background: #1f1f1f;
+    font-size: 14px;
+    color: #fff;
+
+    @include media-breakpoint-between(xs, sm) {
+        font-size: 12px;
+        padding-top: 40px;
+    }
+    @include media-breakpoint-only(xs) { font-size: 10px; }
+
+    .logo {
+        height: 100px;
+
+        @include media-breakpoint-only(xs) {
+            height: 60px;
+        }
+    }
+
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .social-links {
+        font-size: 24px;
+        a {
+            color: rgba(255, 255, 255, 0.6);
+            margin-right: 26px;
+            transition: color 0.2s;
+
+            &:hover, &:active {
+                color: #fff;
+            }
+        }
+
+        @include media-breakpoint-only(sm) {
+            font-size: 20px;
+
+            a { margin-right: 18px; }
+        }
+        @include media-breakpoint-only(xs) {
+            font-size: 18px;
+            
+            a { margin-right: 0; }
+            a:nth-child(2) {
+                margin: 0 20px;
+            }
+        }
+    }
+}
+
+
+/*************************/
+/******** QUERIES ********/
+/*************************/
+

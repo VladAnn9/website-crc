@@ -1,0 +1,69 @@
+<header class="web_homePage" (scroll)="onWindowScroll($event);">
+
+  <nav class="navbar sidebar ">
+    <div class="collapse navbar-collapse mt-8 mt-sm-10" id="navbarMenu">
+      <ul class="navbar-nav text-right">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a pageScroll [pageScrollOffset]="offset()" [pageScrollDuration]="800" class="nav-link" href="#about" (click)="toggleMenu()" ><span class="link-nav-hover">Про нас <span class="sr-only">(current)</span></span></a>
+        </li>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a pageScroll [pageScrollOffset]="offset()" [pageScrollDuration]="800" class="nav-link" href="#services" (click)="toggleMenu()" ><span class="link-nav-hover">Служения</span></a>
+        </li>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a pageScroll [pageScrollOffset]="offset()" [pageScrollDuration]="800" class="nav-link" href="#location" (click)="toggleMenu()" ><span class="link-nav-hover">Где мы есть</span></a>
+        </li>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a pageScroll [pageScrollOffset]="offset()" [pageScrollDuration]="800" class="nav-link" href="#contact" (click)="toggleMenu()" ><span class="link-nav-hover">Связаться</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div id="overlay" [@fade]="isActive ? 'open' : 'close'" class="overlay" ></div>
+
+  <div class="container-fluid position-relative h-100">
+    <div class="row">
+      <div class="col px-0">
+        <nav class="navbar navbar-dark" id="navbar" 
+          [class.sidebar-active]="isActive">
+            <a class="navbar-brand logo-white" href="" id="logo"><img src="../assets/img/logo-white.png" alt="CRC logo" class="logo"></a>
+            <a class="navbar-brand logo-black" href="" id="logo"><img src="../assets/img/logo.png" alt="CRC logo" class="logo"></a>
+        
+            <div class="social-links d-block ml-auto">
+              <a href="https://www.youtube.com/channel/UC2RgGOdTXi5kR5uzDp1Gptw" target="_blank"><i class="icon ion-logo-youtube"></i></a>
+              <a href="https://www.instagram.com/crc.poltava" target="_blank"><i class="icon ion-logo-instagram"></i></a>
+              <a href="https://www.facebook.com/crchurchpoltava" target="_blank"><i class="icon ion-logo-facebook"></i></a>
+            </div>
+        
+            <button class="navbar-toggler collapsed d-block ml-auto" data-toggle="collapse" data-target="#navbarMenu" type="button"
+              aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation" 
+              (click)="toggleMenu()">
+              <span> </span>
+              <span> </span>
+              <span> </span>
+            </button>
+        
+        </nav>
+
+      </div>
+    </div>
+
+    <div class="row justify-content-start h-50 align-items-end">
+      <div class="col col-md-auto offset-sm-2 pb-4 mt-4 mt-md-0 main-text">
+        <h1>
+        	Любим Бога <br>
+          Любим Людей <br>
+          Любим Свою Церковь
+        </h1>
+      </div>
+    </div>
+
+    <div id="arrow-scroll">
+      <a pageScroll [pageScrollOffset]="offset()" [pageScrollDuration]="800" href="#welcome"><span></span></a>
+    </div>
+
+  </div>
+
+
+</header>

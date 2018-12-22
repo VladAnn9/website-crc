@@ -1,0 +1,263 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+    url(../../assets/img/back.jpg) center/cover;
+    background-color: #333;
+    height: 100vh;
+
+    @include media-breakpoint-only(xs) {
+        // h1 { margin-top: 12px; }
+    }
+
+    nav#navbar {
+        padding: 10px 52px;
+        background: transparent;
+        z-index: 1030;
+
+        @include media-breakpoint-only(xs) {
+            padding: 10px 20px;
+        }
+
+        button {
+            position: relative;
+            margin-right: 16px;
+            border: none;
+        }
+
+        .logo {
+            height: 100px;
+            width: auto;
+
+            @include media-breakpoint-only(xs) {
+                height: 70px;
+            }
+        }
+
+        .logo-black {
+            display: none;
+        }
+
+        &.scrolled-nav {
+
+            background: rgba(255, 255, 255, 1);
+            -webkit-box-shadow: 0px 1px 6px 0px rgba(32,33,36,0.28);
+            -moz-box-shadow: 0px 1px 6px 0px rgba(32,33,36,0.28);
+            box-shadow: 0px 1px 6px 0px rgba(32,33,36,0.28);
+            transition: all 0.2s ease-in-out;
+
+            &.sidebar-active {
+                background: transparent;
+                box-shadow: none;
+                transition: all 0.2s ease-in-out;
+
+                .logo-black {
+                    display: none;
+                }
+
+                .logo-white {
+                    display: block;
+
+                    & .logo {
+                        height: 70px;
+                        width: auto;
+                    }
+                }
+
+                button.navbar-toggler span {
+                    background: white;
+                }
+                
+            }
+    
+            .social-links {
+                visibility: hidden;
+            }
+    
+            button.navbar-toggler span {
+                background: black;
+            }
+    
+            .logo-white {
+                display: none;
+            }
+    
+            .logo-black {
+                display: block;
+    
+                & .logo {
+                    height: 70px;
+                    width: auto;
+                }
+            }
+            
+        }
+    }
+
+    .overlay {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        z-index: 1010;
+    }
+
+    .link-nav-hover {
+        background-image: linear-gradient( 135deg, #ff65dede 0%, #ffd152d2 60%); // TODO > change colors
+        background-repeat: no-repeat;
+        background-size: 30% 100%;
+        background-position: 100%;
+        transition: background-size 0.25s ease-in-out;
+    }
+
+    a.nav-link:hover {
+        .link-nav-hover {
+            background-size: 100% 100%;
+        }
+    }
+
+    div.social-links {
+        font-size: 24px;
+        padding-right: 60px;
+
+        @include media-breakpoint-between(xs, sm) {
+            padding-right: 26px;
+        }
+
+        @include media-breakpoint-only(xs) {
+            padding-right: 0;
+        }
+
+        a {
+            display: inline;
+            color:#fff;
+            opacity: 0.7;
+            cursor: pointer;
+            transition: opacity .2s;
+        }
+
+        a:nth-child(2) {
+            margin: 0 100px;
+
+            @include media-breakpoint-only(sm) { margin: 0 70px; }
+            @include media-breakpoint-only(xs) {
+                margin: 0 30px;
+            }
+        }
+
+        a:hover {
+            opacity: 1;
+        }
+    }
+}
+
+div.container-fluid {
+    #arrow-scroll a span {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+        margin-left: -12px;
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+}
+
+nav.sidebar {
+    text-transform: uppercase;
+    padding: 0;
+    position: fixed;
+    z-index: 1020;
+    right: 0;
+    // top: 0;
+    // bottom: 0;
+
+    div {
+        padding-right: 84px;
+
+        a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            
+        }
+
+        @include media-breakpoint-only(xs) { padding-right: 60px;}
+    }
+}
+
+
+
+/******************/
+/* BURGER MENU */
+/******************/
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: 0;
+}
+
+.navbar-toggler span {
+   display: block;
+   background-color: #fff;
+   height: 2px;
+   width: 25px;
+   margin-top: 4px;
+   margin-bottom: 4px;
+   -webkit-transform: rotate(0deg);
+   -moz-transform: rotate(0deg);
+   -o-transform: rotate(0deg);
+   transform: rotate(0deg);
+   position: relative;
+   left: 0;
+   opacity: 1;
+}
+
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+    
+   -webkit-transition: transform .35s ease-in-out;
+   -moz-transition: transform .35s ease-in-out;
+   -o-transition: transform .35s ease-in-out;
+   transition: transform .35s ease-in-out;
+}
+
+.navbar-toggler span:nth-child(2) {
+    margin: 6px 0;
+    transition: height .1s ease-in-out, visibility .1s ease-in-out;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+    opacity: 1;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+    height: 12px;
+    visibility: hidden;
+    background-color: transparent;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    opacity: 1;
+}
