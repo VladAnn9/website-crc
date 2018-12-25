@@ -5,9 +5,9 @@ import {
   transition,
   trigger
 } from "@angular/animations";
-import { DOCUMENT } from "@angular/common";
+// import { DOCUMENT } from "@angular/common";
 import { Component, HostListener, Inject, OnInit } from "@angular/core";
-import * as $ from 'jquery';
+
 
 @Component({
   selector: "app-header",
@@ -32,9 +32,10 @@ import * as $ from 'jquery';
 })
 export class HeaderComponent implements OnInit {
   isActive = false;
-
-  constructor(@Inject(DOCUMENT) document) {}
-
+  
+  navHeight: number = 100;
+  // constructor(@Inject(DOCUMENT) document) {}
+  
   ngOnInit() {}
 
   @HostListener("window:scroll", ["$event"])
@@ -44,6 +45,7 @@ export class HeaderComponent implements OnInit {
       let element = document.getElementById("navbar");
       element.classList.add("fixed-top");
       element.classList.add("scrolled-nav");
+      this.navHeight = document.getElementById("navbar").offsetHeight;
     } else {
       let element = document.getElementById("navbar");
       element.classList.remove("fixed-top");
@@ -65,10 +67,6 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  offset() {
-    return $('#navbar').height();
-    
-  }
   
 
   

@@ -8,9 +8,6 @@ header {
     background-color: #333;
     height: 100vh;
 
-    @include media-breakpoint-only(xs) {
-        // h1 { margin-top: 12px; }
-    }
 
     nav#navbar {
         padding: 10px 52px;
@@ -25,6 +22,10 @@ header {
             position: relative;
             margin-right: 16px;
             border: none;
+
+            @include media-breakpoint-only(xs) {
+                margin-right: 0;
+            }
         }
 
         .logo {
@@ -32,7 +33,7 @@ header {
             width: auto;
 
             @include media-breakpoint-only(xs) {
-                height: 70px;
+                height: 60px;
             }
         }
 
@@ -156,7 +157,7 @@ header {
 div.container-fluid {
     #arrow-scroll a span {
         position: absolute;
-        bottom: 24px;
+        bottom: 30px;
         left: 50%;
         width: 24px;
         height: 24px;
@@ -189,7 +190,7 @@ nav.sidebar {
             
         }
 
-        @include media-breakpoint-only(xs) { padding-right: 60px;}
+        @include media-breakpoint-only(xs) { padding-right: 34px;}
     }
 }
 
